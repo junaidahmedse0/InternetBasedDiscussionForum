@@ -1,0 +1,82 @@
+﻿@model IEnumerable<UniForum.Post>
+
+@{
+    ViewBag.Title = "ApprovePost";
+}
+
+
+
+<div class="table-container" style="margin-top:50px;">
+
+    <div class="row">
+
+        <div class="col-sm-2">
+
+            <div class="btn btn-primary" style="padding-left:20px;padding-right:20px;">Posts</div>
+
+
+        </div>
+
+        <div class="col-sm-8 col-sm-offset-2">
+
+
+
+            <input id="myInput" type="text" placeholder="Search.." class="form-control" style="max-width:100%;">
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:10px;">
+        <hr />
+        <table class="table table-bordered table-responsive table-responsive table-hover table-striped sortable">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Subject)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Question)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+
+             
+                <th>
+                    @Html.DisplayNameFor(model => model.Likes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+
+            
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Subject)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Question)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+
+                  
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Likes)
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary" value="@item.Id" onclick="return  ApprovePost(@item.Id);">Approve</button>
+                 
+                    </td>
+
+
+                </tr>
+            }
+
+        </table>
+
+</div>
+</div>

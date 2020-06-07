@@ -1,0 +1,158 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!--Main Carosel Of Page-->
+<div class="jumbotron">
+    <div class="container-fluid jumbo">
+
+        <div class="row">
+
+            <div class="col-sm-8 col-lg-offset-3 jumbo-top">
+                Welcome to Immentia Forum
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-sm-6 col-lg-offset-4 jumbo-bottom" >
+                The most popular forum on the internet!
+            </div>
+        </div>
+    </div>
+</div>
+<!--Home Info Side-->
+<div class="container-fluid home-info" >
+
+    <div class="row">
+
+        <div class="col-sm-6 home-info-left">
+            <h2 style="color:white;"> JOIN OUR FORUM !</h2>
+            Talk about anything that's on your mind and see what others think. As a guest to our forum you are only able to view posts. When you register with the Forumix forum you can join in with topics, start new topics and generally be a part of the first level of our community.
+
+            <div><a href="@Url.Action("SignUp", "Account")" class="btn btn-default" style="margin-top:50px;">REGISTER NOW</a></div>
+
+        </div>
+        <div class="col-sm-6 home-info-right">
+            <h2 style="color:#4eaede;"> JOIN OUR FORUM !</h2>
+            Talk about anything that's on your mind and see what others think. As a guest to our forum you are only able to view posts. When you register with the Forumix forum you can join in with topics, start new topics and generally be a part of the first level of our community.
+
+            <div><a href="@Url.Action("SignUp", " Account")" class="btn btn-style" >REGISTER NOW</a></div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--Home Page Informative Cards-->
+<div class="container-fluid home-cards">
+
+    <div class="row">
+        <div class="col-sm-3  shadow">
+            <div class="" style="padding:40px">
+                <div class="text-center">
+                    <p class="txt-bold">POSTS<span class="badge txt-bold">10</span>  </p>
+                                
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 shadow">
+            <div class="" style="padding:40px">
+                <div class="text-center">
+                    <p class="txt-bold">TOPICS <span class="badge txt-bold">80</span> </p>
+                
+                   
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 shadow">
+            <div  style="padding:40px">
+                <div class="text-center">
+                    <p class="txt-bold">REPLIES<span class="badge txt-bold">100</span>   </p>
+                  
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Home Page Table Container-->
+<div class="container">
+    <div class="row table-container">
+        <table class="table table-responsive table-bordered table-striped table-hover table-condensed table-main">
+            <thead class="table-thead">
+                <tr>
+                    <th class="table-th">
+
+                        Posts
+
+                    </th>
+
+                    <th class="table-th">
+
+                        Comment
+
+
+                    </th>
+
+                    <th class="table-th">
+                        Replies
+
+                    </th>
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                    <td class="table-td">Web Development </td>
+
+                    <td class="table-td">20</td>
+
+                    <td class="table-td">200</td>
+
+
+                </tr>
+                <tr>
+
+                    <td class="table-td">Web Designing</td>
+
+                    <td class="table-td">9</td>
+
+                    <td class="table-td">100</td>
+
+
+                </tr>
+                <tr>
+
+                    <td class="table-td">Data Structure And Algorithm</td>
+
+                    <td class="table-td">50</td>
+
+                    <td class="table-td">70</td>
+
+
+                </tr>
+                <tr>
+
+                    <td class="table-td">Object Oriented Analysis and Design </td>
+
+                    <td class="table-td">30</td>
+
+                    <td class="table-td">50</td>
+
+
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+<!--Footer Html Code -->
+<footer id="sticky-footer">
+    <div class="container text-center">
+        <small>Copyright &copy; www.ImmentiaForum.com</small>
+    </div>
+</footer>

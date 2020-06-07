@@ -1,0 +1,188 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+.header {
+
+
+   background-color:#1d84b5 !important;
+   padding:10px !important;
+    padding-right: 20px !important; 
+
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 350px;
+}
+.container {
+    width: 100%;
+ 
+    padding: 0px;
+}
+
+/*Second Post*/
+
+
+a{
+    color:white;
+}
+
+body{
+    font-family:'helvetica';    
+}
+
+
+
+/*-- Content Style --*/
+.post-footer-option li{
+    float:left;
+    margin-right:50px;
+    padding-bottom:15px;
+}
+
+.post-footer-option li a{
+    color:#AFB4BD;
+    font-weight:500;
+    font-size:1.3rem;
+}
+
+.photo-profile{
+    border:1px solid #DDD;    
+}
+
+.anchor-username h4{
+    font-weight:bold;    
+}
+
+.anchor-time{
+    color:#ADB2BB;
+    font-size:1.2rem;
+}
+
+.post-footer-comment-wrapper{
+    background-color:#364253;
+}
+.fullwidth{
+
+
+  max-width:100% !important;
+}
+
+.about-us
+{
+    color:white;
+    background-color:#364253;
+}
+.about-heading
+{
+    text-align:center;
+    color:white !important;
+}
+
+.shadow{
+
+     box-shadow:  5px 5px 15px 5px grey;
+}
+.table-thead{
+    background-color:#4eaede;
+    color:white;
+    padding:100px;
+}
+
+.table-th{
+    padding:20px !important;
+}
+.table-td
+{
+    padding:18px !important;
+}
+.table-main
+{
+      box-shadow:  3px 3px 7px 3px grey;
+}
+
+
+/* Footer Styling*/
+#sticky-footer {
+
+    background-color:#1d84b5;
+    color:white;
+    padding-top:30px;
+    padding-bottom:30px;
+}
+/*Home Page Table Styling*/
+.table-container {
+    margin:100px !important;
+
+}
+/*Home Page Cards*/
+.home-cards {
+    margin-left:100px;
+    margin-right:100px;
+    margin-bottom:30px;
+    margin-top:30px;
+}
+
+/*Home Info Side*/
+.home-info {
+    margin-left:30px;
+    margin-right:30px;
+    margin-top:30px;
+}
+.home-info-left {
+    padding-top:60px;padding-left:80px;padding-right:100px;padding-bottom:80px;background-color:#1d84b5;color:white;margin-bottom:100px;
+}
+.home-info-right {
+    padding-top:60px;padding-left:80px;padding-right:100px;padding-bottom:80px;background-color:#4eaede;color:#4eaede;margin-bottom:100px;
+}
+.btn-style {
+    margin-top:50px;
+    color:#4eaede;
+    background-color:#4eaede;
+}
+
+/*Carosel Desgining*/
+
+.jumbotron {
+    padding:0px !important;width:100%;
+}
+.jumbo {
+    background-color:#1d84b5;
+    margin:0px !important;
+    width:100% !important;
+    padding-top:200px;
+    padding-bottom:200px;
+}
+.jumbo-top {
+    color:white;
+    font-size:50px;
+}
+.jumbo-bottom {
+    color:white;
+    font-size:25px;
+}
+/*
+    TEXT Bold
+*/
+.txt-bold
+{
+    font-size:20px;
+    font-weight:bold;
+}
+.table-container
+{
+    margin-left:100px;
+    margin-right:100px;
+}
+/*Color White*/
+.clr-white
+{
+    color:black;
+}

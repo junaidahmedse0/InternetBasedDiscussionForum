@@ -1,0 +1,187 @@
+﻿@*@model IEnumerable<UniForum.Post>*@
+@model IEnumerable<UniForum.ViewModel.PostViewModel>
+
+@*@model List<UniForum.ViewModel.PostViewModel>*@
+
+
+
+    
+                    @if (User.IsInRole("admin"))
+                    {
+                        <div style="margin-top:50px !important;"></div>
+                        <div class="btn btn-primary" style="width:100%;">POSTS</div>
+                    }
+                    else
+                    {
+                        <div class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="width:100%;margin-top:50px;">Create Post</div>
+
+                    }
+      @foreach (var item in Model)
+                {
+                <div class="row" style="margin-top:10px;">
+                    <div class="container-fluid">
+
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <section class="post-heading">
+                                    <div class="row">
+                                        <div class="col-md-11">
+                                            <div class="media">
+                                                <div class="media-left">
+                                                    <a href="#">
+                                                        <img src="/Images/circle.jpg" alt="" class="img-circle" width="60px;" height="60px;">
+                                                    </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <a href="#" class="anchor-username"><h4 class="media-heading">@item.FirstName</h4></a>
+                                                    <a href="#" class="anchor-time">51 mins</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <a href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                        </div>
+                                    </div>
+                                </section>
+
+
+                                <section class="post-body">
+                                    <h2>
+                                        @Html.DisplayFor(modelItem => item.Post.Question)
+
+                                    </h2>
+                                    <p>
+                                        @Html.DisplayFor(modelItem => item.Post.Description)
+
+                                    </p>
+                                    <div class="alert alert-success alert-dismissible fade show">
+                                        <strong>Success!</strong> Your message has been sent successfully.
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    </div>
+                                </section>
+                                <section class="post-footer">
+                                    <hr>
+                                    <div class="post-footer-option container">
+                                        <ul class="list-unstyled">
+                                            <li onclick="return AddLike(@item.Post.Id);"><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> Like <span class="badge" style="margin:5px;">@item.Post.Likes</span></a></li>
+                                            <li onclick="return ShowPostDetail(@item.Post.Id)"><a href="#"><i class="glyphicon glyphicon-comment"></i> Comment<span class="badge" style="margin:5px;">@item.Post.Comments.Count</span></a></li>
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                if (User.IsInRole("admin"))
+                                                {
+
+
+                                                    <li onclick="return AddFav(@item.Post.Id)" ><a href="#"><i class="glyphicon glyphicon-heart"></i> Favorite</a></li>
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+
+                                    <hr />
+                                    <div class="input-group">
+                                        <input class="form-control" placeholder="Add a comment" id="@item.Post.Id" type="text" style="max-width:100% !important;">
+                                        <span class="input-group-addon">
+                                            <a onclick="return  AddComment(@item.Post.Id);" class="clr-white"><i class="fa fa-edit"></i>Comment</a>
+                                        </span>
+                                    </div>
+                                </section>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            <hr />
+
+
+
+
+
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog ">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Whats On Your Mind?</h4>
+            </div>
+            <div class="modal-body fullwidth">
+
+
+
+                <div class="form-group">
+                    <label>Question</label>
+                    <input type="text" class="form-control fullwidth" name="slug" placeholder="What's?" id="post-question" />
+                    <label class="question-label"></label>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Subject <span class="require">*</span></label>
+                    <select class="form-control fullwidth" id="post-subject">
+                        <option value="Object Oriented Programming">Object Oriented Programming</option>
+                        <option value="Data Structure">Data Structure</option>
+                        <option value="Web Developent">Web Developent</option>
+                        <option value="Web Designing">Web Designing</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="description">Description</label>
+                    <textarea rows="5" class="form-control fullwidth" name="description" id="post-description"></textarea>
+                    <label class="description-label"></label>
+                </div>
+
+
+
+
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-default" id="submitpost" onclick="return AddPost()">Sumbit</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="PostDetail" class="modal fade" role="dialog">
+    <div class="modal-dialog ">
+
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Post Details</h4>
+            </div>
+            <div class="modal-body fullwidth">
+
+
+
+                <div class="form-group" id="commentsection">
+             
+
+                    </div>
+
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="clearmodal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+@section scripts
+  {
+
+    @Scripts.Render("~/bundles/jqueryval")  }

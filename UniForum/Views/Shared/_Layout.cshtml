@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom:100px !important;">
+        <div class="container header">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Forum", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                   
+
+                    
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("admin"))
+                        {
+                            <li>@Html.ActionLink("Dashboard", "Index", "Admin")</li>
+                            <li>@Html.ActionLink("AddTeacher", "SignUp", "Account")</li>
+                            <li>@Html.ActionLink("AcceptAccounts", "ApproveStudent", "Admin")</li>
+                            <li>@Html.ActionLink("AcceptPost", "ApprovePost", "Admin")</li>
+                            <li>@Html.ActionLink("Favorite", "FavPost", "Admin")</li>
+
+
+                        }
+                        if (User.IsInRole("teacher") || User.IsInRole("student") || User.IsInRole("alumni"))
+                        {
+                            <li>@Html.ActionLink("Posts", "Index", "Posts")</li>
+
+                        }
+
+
+
+                        
+                       
+
+
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("LogIn", "Login", "Account")</li>
+
+                    }
+
+                </ul>
+            @if (User.Identity.IsAuthenticated)
+            {
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li><a>Dear - @User.Identity.Name</a></li>
+                    <li>@Html.ActionLink("LogOut", "Logout", "Account")</li>
+
+                </ul>
+            }
+               
+            </div> 
+     
+        </div>
+  
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
